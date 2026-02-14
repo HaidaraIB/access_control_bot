@@ -1,0 +1,7 @@
+data/*
+.env
+__pycache__/
+*.session
+*.session-journal
+test.py
+errors.txt

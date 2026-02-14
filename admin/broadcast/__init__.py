@@ -1,0 +1,1 @@
+from admin.broadcast.handlers import broadcast_message_handler
