@@ -35,8 +35,15 @@ def create_folders():
 
 
 def format_datetime(d: datetime):
-    return
+    """Format datetime for human-readable display (e.g. 15 Feb 2025, 14:30)."""
+    if d is None:
+        return ""
+    return d.strftime("%d %b %Y, %H:%M")
 
 
 def format_float(f: float):
-    return float()
+    """Format number with thousand separators (e.g. 1,000,000) and no trailing zeroes (1.00 -> 1)."""
+    if f is None:
+        return ""
+    s = f"{f:,.2f}".rstrip("0").rstrip(".")
+    return s

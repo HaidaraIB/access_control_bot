@@ -3,3 +3,4 @@ from models.User import User
 from models.Language import Language
 from models.ForceJoinChat import ForceJoinChat
 from models.AdminPermission import AdminPermission, Permission
+from models.AccessRequest import AccessRequest, AccessRequestStatus

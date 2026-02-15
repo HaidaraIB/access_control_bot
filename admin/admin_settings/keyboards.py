@@ -53,6 +53,9 @@ def build_permissions_keyboard(
         models.Permission.VIEW_IDS: BUTTONS[lang].get(
             "permission_view_ids", "View IDs"
         ),
+        models.Permission.MANAGE_ACCESS_REQUESTS: BUTTONS[lang].get(
+            "permission_manage_access_requests", "Manage Access Requests"
+        ),
     }
 
     for permission in models.Permission:

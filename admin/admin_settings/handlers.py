@@ -57,7 +57,6 @@ NEW_ADMIN_ID, SELECT_PERMISSIONS = range(2)
 async def add_admin(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if PrivateChatAndOwner().filter(update):
         lang = get_lang(update.effective_user.id)
-        await update.callback_query.answer()
         await update.callback_query.delete_message()
         await context.bot.send_message(
             chat_id=update.effective_user.id,
@@ -284,7 +283,6 @@ async def remove_admin(update: Update, context: ContextTypes.DEFAULT_TYPE):
                     show_alert=True,
                 )
 
-            await update.callback_query.answer()
             admins = s.query(models.User).filter(models.User.is_admin == True).all()
             admin_ids_keyboard = [
                 [
@@ -440,6 +438,9 @@ async def show_admin_permissions(update: Update, context: ContextTypes.DEFAULT_T
                     "permission_manage_force_join", "Manage Force Join"
                 ),
                 models.Permission.VIEW_IDS: TEXTS[lang].get("permission_view_ids", "View IDs"),
+                models.Permission.MANAGE_ACCESS_REQUESTS: TEXTS[lang].get(
+                    "permission_manage_access_requests", "Manage Access Requests"
+                ),
             }
             for perm in selected_permissions:
                 permissions_text += f"✅ {permission_names.get(perm, perm.value)}\n"

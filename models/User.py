@@ -1,4 +1,5 @@
 import sqlalchemy as sa
+from sqlalchemy.orm import relationship
 from models.DB import Base
 from models.Language import Language
 from datetime import datetime
@@ -9,6 +10,12 @@ class User(Base):
 
     user_id = sa.Column(sa.BigInteger, primary_key=True)
     username = sa.Column(sa.String)
+    access_requests = relationship(
+        "AccessRequest",
+        back_populates="user",
+        lazy="select",
+        cascade="all, delete-orphan",
+    )
     name = sa.Column(sa.String)
     lang = sa.Column(sa.Enum(Language), default=Language.ARABIC)
     is_banned = sa.Column(sa.Boolean, default=0)

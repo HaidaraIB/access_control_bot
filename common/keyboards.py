@@ -15,10 +15,16 @@ def build_user_keyboard(lang: models.Language):
     keyboard = [
         [
             InlineKeyboardButton(
+                text=BUTTONS[lang]["submit_login_details"],
+                callback_data="submit_login_details",
+            ),
+        ],
+        [
+            InlineKeyboardButton(
                 text=BUTTONS[lang]["settings"],
                 callback_data="user_settings",
             ),
-        ]
+        ],
     ]
     return InlineKeyboardMarkup(keyboard)
 
@@ -64,6 +70,12 @@ def build_admin_keyboard(
                 InlineKeyboardButton(
                     text=BUTTONS[lang]["broadcast"],
                     callback_data="broadcast",
+                )
+            ],
+            [
+                InlineKeyboardButton(
+                    text=BUTTONS[lang]["access_requests_settings"],
+                    callback_data="access_requests_settings",
                 )
             ],
         ]
@@ -115,6 +127,16 @@ def build_admin_keyboard(
                     InlineKeyboardButton(
                         text=BUTTONS[lang]["broadcast"],
                         callback_data="broadcast",
+                    )
+                ]
+            )
+
+        if HasPermission.check(user_id, models.Permission.MANAGE_ACCESS_REQUESTS):
+            keyboard.append(
+                [
+                    InlineKeyboardButton(
+                        text=BUTTONS[lang]["access_requests_settings"],
+                        callback_data="access_requests_settings",
                     )
                 ]
             )

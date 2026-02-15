@@ -86,7 +86,7 @@ async def check_joined(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if not force_join_chats:
         lang = get_lang(update.effective_user.id)
         await update.callback_query.edit_message_text(
-            text=TEXTS[lang]["welcome_msg"],
+            text=TEXTS[lang]["user_welcome_msg"],
             reply_markup=build_user_keyboard(lang),
         )
         return
@@ -121,7 +121,7 @@ async def check_joined(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     # User has joined all chats
     await update.callback_query.edit_message_text(
-        text=TEXTS[lang]["welcome_msg"],
+        text=TEXTS[lang]["user_welcome_msg"],
         reply_markup=build_user_keyboard(lang),
     )
 

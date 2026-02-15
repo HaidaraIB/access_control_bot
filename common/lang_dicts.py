@@ -101,6 +101,7 @@ TEXTS = {
         "permission_view_ids": "عرض معرفات المستخدمين/المحادثات",
         "permission_manage_permissions": "إدارة الصلاحيات",
         "permission_manage_admins": "إدارة الآدمنز",
+        "permission_manage_access_requests": "إدارة طلبات الوصول",
         "toggle_permission": "تبديل الصلاحية",
         "all_permissions": "جميع الصلاحيات",
         "no_permissions_selected": "لم يتم اختيار أي صلاحيات",
@@ -129,6 +130,47 @@ TEXTS = {
         "excel_no": "لا",
         "lang_arabic": "العربية",
         "lang_english": "English",
+        "access_welcome_msg": (
+            "مرحباً. لطلب الوصول يجب إرسال بيانات الدخول (اسم المستخدم وكلمة المرور).\n\n"
+            "اضغط على الزر أدناه لبدء إرسال البيانات."
+        ),
+        "access_ask_username": "أرسل اسم المستخدم (Username):",
+        "access_ask_password": "أرسل كلمة المرور (Password):",
+        "access_request_received": "تم استلام طلبك. جاري المراجعة من الإدارة.",
+        "access_already_pending": "لديك بالفعل طلب قيد المراجعة.",
+        "access_already_approved": "لديك بالفعل طلب تمت الموافقة عليه.",
+        "access_rejected_msg": "عذراً، تم رفض طلب الوصول. في حال وجود استفسار تواصل مع الإدارة.",
+        "access_request_message_title": "طلب وصول جديد",
+        "access_request_save_failed": "حدث خطأ أثناء حفظ طلب الوصول. يرجى إعادة المحاولة أو استخدام /start.",
+        "access_request_message": (
+            "<b>{title}</b>\n\n"
+            "المستخدم: <code>{user}</code>\n"
+            "اسم المستخدم: <code>{username}</code>\n"
+            "كلمة المرور: <code>{password}</code>\n\n"
+            "رقم طلب الوصول: <code>{req_id}</code>"
+        ),
+        "access_requests_title": "طلبات الوصول",
+        "access_requests_pending_list": "طلبات قيد المراجعة:",
+        "no_pending_access_requests": "لا توجد طلبات وصول قيد المراجعة.",
+        "access_not_found": "لم يتم العثور على طلب الوصول ❌",
+        "access_request_already_processed": "تمت معالجة طلب الوصول مسبقاً.",
+        "access_approved_with_link_msg": (
+            "تم الموافقة على طلبك ✅\n\n"
+            "يمكنك الانضمام إلى القناة الخاصة بالبوت بالضغط على <a href='{invite_link}'>الرابط</a> التالي."
+        ),
+        "access_requests_settings_title": "إعدادات طلبات الوصول 🔐",
+        "access_request_history_ask_id": "اختر طلب الوصول من القائمة أو أرسل رقم الطلب:",
+        "access_request_details_text": (
+            "<b>طلب وصول #{id}</b>\n\n"
+            "المستخدم: {user}\n"
+            "اسم المستخدم: <code>{username}</code>\n"
+            "كلمة المرور: <code>{password}</code>\n"
+            "الحالة: {status}\n"
+            "التاريخ:\n{created_at}"
+        ),
+        "status_pending": "قيد المراجعة",
+        "status_approved": "تمت الموافقة",
+        "status_rejected": "تم الرفض",
     },
     models.Language.ENGLISH: {
         "user_welcome_msg": "Welcome...",
@@ -230,6 +272,7 @@ TEXTS = {
         "permission_view_ids": "View User/Chat IDs",
         "permission_manage_permissions": "Manage Permissions",
         "permission_manage_admins": "Manage Admins",
+        "permission_manage_access_requests": "Manage Access Requests",
         "toggle_permission": "Toggle Permission",
         "all_permissions": "All Permissions",
         "no_permissions_selected": "No permissions selected",
@@ -258,6 +301,47 @@ TEXTS = {
         "excel_no": "No",
         "lang_arabic": "Arabic",
         "lang_english": "English",
+        "access_welcome_msg": (
+            "Welcome. To request access you must submit your login details (username and password).\n\n"
+            "Press the button below to start."
+        ),
+        "access_ask_username": "Send your username:",
+        "access_ask_password": "Send your password:",
+        "access_request_received": "Your request has been received. It is under review.",
+        "access_already_pending": "You already have a pending request.",
+        "access_already_approved": "You already have a request that has been approved.",
+        "access_rejected_msg": "Sorry, your access request was denied. Contact the admin if you have questions.",
+        "access_request_message_title": "New access request",
+        "access_request_save_failed": "An error occurred while saving the access request. Please try again or use /start.",
+        "access_request_message": (
+            "<b>{title}</b>\n\n"
+            "User: <code>{user}</code>\n"
+            "Submitted username: <code>{username}</code>\n"
+            "Submitted password: <code>{password}</code>\n\n"
+            "Access request ID: <code>{req_id}</code>"
+        ),
+        "access_requests_title": "Access Requests",
+        "access_requests_pending_list": "Pending access requests:",
+        "no_pending_access_requests": "No pending access requests.",
+        "access_not_found": "Access request not found ❌",
+        "access_request_already_processed": "This access request was already processed.",
+        "access_approved_with_link_msg": (
+            "Your access request has been approved ✅\n\n"
+            "you can now join the private channel by clicking the following <a href='{invite_link}'>Link</a>."
+        ),
+        "access_requests_settings_title": "Access Requests Settings 🔐",
+        "access_request_history_ask_id": "Select an access request from the list or send the access request ID:",
+        "access_request_details_text": (
+            "<b>Access Request #{id}</b>\n\n"
+            "User: {user}\n"
+            "Username: <code>{username}</code>\n"
+            "Password: <code>{password}</code>\n"
+            "Status: {status}\n"
+            "Created:\n{created_at}"
+        ),
+        "status_pending": "Pending",
+        "status_approved": "Approved",
+        "status_rejected": "Rejected",
     },
 }
 
@@ -309,6 +393,14 @@ BUTTONS = {
         "permission_manage_admins": "إدارة الآدمنز",
         "manage_users_settings": "إدارة المستخدمين 👥",
         "export_users_to_excel": "تصدير المستخدمين إلى Excel 📊",
+        "submit_login_details": "إرسال بيانات الدخول 📝",
+        "access_requests_settings": "طلبات الوصول 🔐",
+        "access_request_approve": "✅ موافقة",
+        "access_request_reject": "❌ رفض",
+        "access_request_approved": "✅ تمت الموافقة",
+        "access_request_rejected": "❌ تم الرفض",
+        "request_pending_access_request": "طلب قيد المراجعة 📥",
+        "access_request_history": "سجل طلبات الوصول 📋",
     },
     models.Language.ENGLISH: {
         "check_joined": "Verify ✅",
@@ -357,6 +449,14 @@ BUTTONS = {
         "permission_manage_admins": "Manage Admins",
         "manage_users_settings": "Manage Users 👥",
         "export_users_to_excel": "Export Users to Excel 📊",
+        "submit_login_details": "Submit Login Details 📝",
+        "access_requests_settings": "Access Requests 🔐",
+        "access_request_approve": "Approve ✅",
+        "access_request_reject": "Reject ❌",
+        "access_request_approved": "Approved ✅",
+        "access_request_rejected": "Rejected ❌",
+        "request_pending_access_request": "Request Pending 📥",
+        "access_request_history": "Access Request History 📋",
     },
 }
 

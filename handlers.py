@@ -10,6 +10,7 @@ from common.force_join import check_joined_handler
 
 from user.user_calls import *
 from user.user_settings import *
+from user.access_request import *
 
 from admin.admin_calls import *
 from admin.admin_settings import *
@@ -17,6 +18,7 @@ from admin.broadcast import *
 from admin.ban import *
 from admin.force_join_chats_settings import *
 from admin.manage_users_settings import *
+from admin.access_requests import *
 
 from models import init_db
 
@@ -38,7 +40,7 @@ def setup_and_run():
     app.add_handler(remove_admin_handler)
     app.add_handler(edit_admin_permissions_handler)
     app.add_handler(admin_settings_handler)
-    
+
     # MANAGE USERS SETTINGS
     app.add_handler(manage_users_settings_handler)
     app.add_handler(export_users_handler)
@@ -54,6 +56,14 @@ def setup_and_run():
     app.add_handler(check_joined_handler)
 
     app.add_handler(ban_unban_user_handler)
+
+    app.add_handler(access_requests_settings_handler)
+    app.add_handler(request_pending_access_request_handler)
+    app.add_handler(access_request_history_handler)
+    app.add_handler(access_approve_reject_handler)
+    app.add_handler(access_invite_link_join_revoke_handler)
+
+    app.add_handler(access_request_handler)
 
     app.add_handler(admin_command)
     app.add_handler(start_command)

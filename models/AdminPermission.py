@@ -10,6 +10,7 @@ class Permission(Enum):
     MANAGE_FORCE_JOIN = "manage_force_join"
     VIEW_IDS = "view_ids"
     MANAGE_USERS = "manage_users"
+    MANAGE_ACCESS_REQUESTS = "manage_access_requests"
 
 
 class AdminPermission(Base):
