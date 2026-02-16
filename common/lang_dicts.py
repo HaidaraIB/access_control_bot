@@ -134,8 +134,8 @@ TEXTS = {
             "مرحباً. لطلب الوصول يجب إرسال بيانات الدخول (اسم المستخدم وكلمة المرور).\n\n"
             "اضغط على الزر أدناه لبدء إرسال البيانات."
         ),
-        "access_ask_username": "أرسل اسم المستخدم (Username):",
-        "access_ask_password": "أرسل كلمة المرور (Password):",
+        "access_ask_username": "أرسل اسم المستخدم:",
+        "access_ask_password": "أرسل كلمة المرور:",
         "access_request_received": "تم استلام طلبك. جاري المراجعة من الإدارة.",
         "access_already_pending": "لديك بالفعل طلب قيد المراجعة.",
         "access_already_approved": "لديك بالفعل طلب تمت الموافقة عليه.",
