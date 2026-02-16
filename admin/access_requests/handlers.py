@@ -44,11 +44,19 @@ def _access_request_details_text(
         _STATUS_TEXT_KEYS.get(req.status, "status_pending"), str(req.status)
     )
     created = format_datetime(req.created_at)
+    if req.order_id:
+        return TEXTS[lang]["access_request_details_text_order_id"].format(
+            id=req.id,
+            user=user_display,
+            order_id=req.order_id,
+            status=status_text,
+            created_at=created,
+        )
     return TEXTS[lang]["access_request_details_text"].format(
         id=req.id,
         user=user_display,
-        username=req.submitted_username,
-        password=req.submitted_password,
+        username=req.submitted_username or "—",
+        password=req.submitted_password or "—",
         status=status_text,
         created_at=created,
     )
@@ -221,13 +229,21 @@ async def request_pending_access_request(
         )
         return
     req_id = oldest.id
-    text = TEXTS[lang]["access_request_message"].format(
-        title=TEXTS[lang]["access_request_message_title"],
-        user=user_display,
-        username=oldest.submitted_username,
-        password=oldest.submitted_password,
-        req_id=req_id,
-    )
+    if oldest.order_id:
+        text = TEXTS[lang]["access_request_message_order_id"].format(
+            title=TEXTS[lang]["access_request_message_title"],
+            user=user_display,
+            order_id=oldest.order_id,
+            req_id=req_id,
+        )
+    else:
+        text = TEXTS[lang]["access_request_message"].format(
+            title=TEXTS[lang]["access_request_message_title"],
+            user=user_display,
+            username=oldest.submitted_username or "—",
+            password=oldest.submitted_password or "—",
+            req_id=req_id,
+        )
     keyboard = build_access_request_keyboard(req_id, lang)
     await context.bot.send_message(
         chat_id=update.effective_user.id,

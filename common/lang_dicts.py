@@ -134,11 +134,14 @@ TEXTS = {
             "مرحباً. لطلب الوصول يجب إرسال بيانات الدخول (اسم المستخدم وكلمة المرور).\n\n"
             "اضغط على الزر أدناه لبدء إرسال البيانات."
         ),
-        "access_ask_username": "أرسل اسم المستخدم:",
-        "access_ask_password": "أرسل كلمة المرور:",
+        "access_choose_method": "كيف تريد تقديم الطلب؟",
+        "access_ask_username": "أرسل اسم المستخدم (Username):",
+        "access_ask_password": "أرسل كلمة المرور (Password):",
+        "access_ask_order_id": "أرسل رقم الطلب (Order ID):",
         "access_request_received": "تم استلام طلبك. جاري المراجعة من الإدارة.",
         "access_already_pending": "لديك بالفعل طلب قيد المراجعة.",
         "access_already_approved": "لديك بالفعل طلب تمت الموافقة عليه.",
+        "access_already_in_channel": "أنت بالفعل داخل القناة الخاصة. لا حاجة لتقديم طلب جديد.",
         "access_rejected_msg": "عذراً، تم رفض طلب الوصول. في حال وجود استفسار تواصل مع الإدارة.",
         "access_request_message_title": "طلب وصول جديد",
         "access_request_save_failed": "حدث خطأ أثناء حفظ طلب الوصول. يرجى إعادة المحاولة أو استخدام /start.",
@@ -147,6 +150,12 @@ TEXTS = {
             "المستخدم: <code>{user}</code>\n"
             "اسم المستخدم: <code>{username}</code>\n"
             "كلمة المرور: <code>{password}</code>\n\n"
+            "رقم طلب الوصول: <code>{req_id}</code>"
+        ),
+        "access_request_message_order_id": (
+            "<b>{title}</b>\n\n"
+            "المستخدم: <code>{user}</code>\n"
+            "رقم الطلب: <code>{order_id}</code>\n\n"
             "رقم طلب الوصول: <code>{req_id}</code>"
         ),
         "access_requests_title": "طلبات الوصول",
@@ -165,6 +174,13 @@ TEXTS = {
             "المستخدم: {user}\n"
             "اسم المستخدم: <code>{username}</code>\n"
             "كلمة المرور: <code>{password}</code>\n"
+            "الحالة: {status}\n"
+            "التاريخ:\n{created_at}"
+        ),
+        "access_request_details_text_order_id": (
+            "<b>طلب وصول #{id}</b>\n\n"
+            "المستخدم: {user}\n"
+            "رقم الطلب: <code>{order_id}</code>\n"
             "الحالة: {status}\n"
             "التاريخ:\n{created_at}"
         ),
@@ -305,11 +321,14 @@ TEXTS = {
             "Welcome. To request access you must submit your login details (username and password).\n\n"
             "Press the button below to start."
         ),
+        "access_choose_method": "How do you want to submit your request?",
         "access_ask_username": "Send your username:",
         "access_ask_password": "Send your password:",
+        "access_ask_order_id": "Send your Order ID:",
         "access_request_received": "Your request has been received. It is under review.",
         "access_already_pending": "You already have a pending request.",
         "access_already_approved": "You already have a request that has been approved.",
+        "access_already_in_channel": "You are already in the private channel. No need to submit a new request.",
         "access_rejected_msg": "Sorry, your access request was denied. Contact the admin if you have questions.",
         "access_request_message_title": "New access request",
         "access_request_save_failed": "An error occurred while saving the access request. Please try again or use /start.",
@@ -318,6 +337,12 @@ TEXTS = {
             "User: <code>{user}</code>\n"
             "Submitted username: <code>{username}</code>\n"
             "Submitted password: <code>{password}</code>\n\n"
+            "Access request ID: <code>{req_id}</code>"
+        ),
+        "access_request_message_order_id": (
+            "<b>{title}</b>\n\n"
+            "User: <code>{user}</code>\n"
+            "Order ID: <code>{order_id}</code>\n\n"
             "Access request ID: <code>{req_id}</code>"
         ),
         "access_requests_title": "Access Requests",
@@ -336,6 +361,13 @@ TEXTS = {
             "User: {user}\n"
             "Username: <code>{username}</code>\n"
             "Password: <code>{password}</code>\n"
+            "Status: {status}\n"
+            "Created:\n{created_at}"
+        ),
+        "access_request_details_text_order_id": (
+            "<b>Access Request #{id}</b>\n\n"
+            "User: {user}\n"
+            "Order ID: <code>{order_id}</code>\n"
             "Status: {status}\n"
             "Created:\n{created_at}"
         ),
@@ -394,6 +426,8 @@ BUTTONS = {
         "manage_users_settings": "إدارة المستخدمين 👥",
         "export_users_to_excel": "تصدير المستخدمين إلى Excel 📊",
         "submit_login_details": "إرسال بيانات الدخول 📝",
+        "submit_username_password": "اسم مستخدم + كلمة مرور 👤🔑",
+        "submit_order_id_only": "رقم الطلب فقط 📋",
         "access_requests_settings": "طلبات الوصول 🔐",
         "access_request_approve": "✅ موافقة",
         "access_request_reject": "❌ رفض",
@@ -450,6 +484,8 @@ BUTTONS = {
         "manage_users_settings": "Manage Users 👥",
         "export_users_to_excel": "Export Users to Excel 📊",
         "submit_login_details": "Submit Login Details 📝",
+        "submit_username_password": "Username + Password 👤🔑",
+        "submit_order_id_only": "Order ID only 📋",
         "access_requests_settings": "Access Requests 🔐",
         "access_request_approve": "Approve ✅",
         "access_request_reject": "Reject ❌",

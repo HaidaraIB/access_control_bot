@@ -21,8 +21,9 @@ class AccessRequest(Base):
         nullable=False,
         index=True,
     )
-    submitted_username = sa.Column(sa.String, nullable=False)
-    submitted_password = sa.Column(sa.String, nullable=False)
+    submitted_username = sa.Column(sa.String, nullable=True)
+    submitted_password = sa.Column(sa.String, nullable=True)
+    order_id = sa.Column(sa.String, nullable=True)
     status = sa.Column(
         sa.Enum(AccessRequestStatus),
         nullable=False,
